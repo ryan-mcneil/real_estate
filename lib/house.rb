@@ -8,5 +8,9 @@ class House
     @address = address
     @rooms = []
   end
-  
+
+  def add(room)
+    @rooms << room
+  end
+
 end
