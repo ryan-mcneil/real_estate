@@ -18,4 +18,11 @@ class House
       room.category == category
     end
   end
+
+  def area
+    @rooms.inject(0) do |sum, room|
+      sum += room.area
+    end
+  end
+
 end

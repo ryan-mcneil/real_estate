@@ -44,4 +44,19 @@ class HouseTest < Minitest::Test
     assert_equal [room_4], house.rooms_from_category(:basement)
     assert_equal [], house.rooms_from_category(:kitchen)
   end
+
+  def test_if_it_can_calculate_total_area
+    house = House.new("$400000", "123 sugar lane")
+    room_1 = Room.new(:bedroom, 10, 13)
+    room_2 = Room.new(:bedroom, 11, 15)
+    room_3 = Room.new(:living_room, 25, 15)
+    room_4 = Room.new(:basement, 30, 41)
+    assert_equal 0, house.area
+    house.add(room_1)
+    house.add(room_2)
+    assert_equal 295, house.area
+    house.add(room_3)
+    house.add(room_4)
+    assert_equal 1900, house.area
+  end
 end
