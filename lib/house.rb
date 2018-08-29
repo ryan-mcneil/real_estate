@@ -36,5 +36,12 @@ class House
     end.reverse
   end
 
+  def rooms_by_category
+    hash = Hash.new([])
+    @rooms.each do |room|
+      hash[room.category] = rooms_from_category(room.category)
+    end
+    hash
+  end
 
 end
